@@ -1,0 +1,162 @@
+* {
+    font-family: 'Segoe UI Light', Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+    background-color: #000000f2;
+}
+
+.form-control {
+    background-color: transparent !important;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, .7);
+    border-radius: 0;
+    color: #fff;
+    font-weight: 800;
+    width: 100% !important;
+}
+
+.movie {
+    overflow: hidden
+}
+
+.layer {
+    background-color: rgba(255, 255, 255, .7);
+    text-align: center;
+    color: #000;
+    font-weight: 800;
+    transition: all 1s; 
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -ms-transition: all 1s;
+    -o-transition: all 1s;
+}
+.layer{
+    opacity: 0;
+}
+.form-control:focus {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255,.7);
+    border-radius: 0;
+}
+.post:hover .layer {
+    display: flex !important;
+    opacity: 1;
+    top: 0 !important;
+}
+/* .alert {
+    display: none;
+
+}  */
+.movie-img{
+    height: 435px;
+}
+.alert {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+}
+.input-group{
+    margin-bottom: 1rem;
+}
+
+.strip-header-nav{
+    left: 240px;
+}
+
+.nav-tab-menu { 
+    width: 250px;
+    height: 100vh;
+    z-index: 5555;
+    background-color: #000;
+    transform: translateX(-100%);
+    transition: all 0.6s ease;
+}
+.open-menu {
+    transform: scale(1) !important;
+    transform: translateX(100%) !important;
+    -webkit-transform: translateX(100%) !important;
+    -moz-transform: translateX(100%) !important;
+    -ms-transform: translateX(100%) !important;
+    -o-transform: translateX(100%) !important;
+}
+.close-menu {
+    transform: translateX(-100%) !important;
+}
+/* when closed menu */
+.nav-tab-menu li {
+    padding-top: 500px;
+    opacity: 0;
+}
+/* when open menu */
+/* .nav-tab-menu li.open 
+{
+    opacity: 1;
+    padding-top: 25px;
+    
+} */
+.nav-tab-menu li {
+    transition: all 1s;
+}
+.nav-social-item {  
+    bottom: 50px;
+    left: 20px;
+}
+.nav-tab-menu ul li a:hover, .nav-social-item a:hover {
+    color: #ff655c;
+    transition: all 0.3s;
+}
+/*
+but when we open nav it will change to 
+.nav-tab-menu li 
+{
+    opacity: 1;
+    padding-top: 25px;
+}
+*/
+.nav-tab-menu ul li a {
+    color: #f9f6f6;
+    font-weight: 500;
+    font-size: 16px;
+}
+.nav-social-item a {
+    color: #f9f6f6;
+    padding-left: 15px;
+    font-size: 14px;
+}
+.nav-social-item span {
+    color: #999;
+}
+
+.strip-header-nav { 
+    width: 60px;
+    height: 100vh;
+    z-index: 55555555;
+    background-color: #f8f6f6;  
+    transition: all 0.6s ease;
+}
+/* when open nav */
+/* .strip-header-nav{
+    left:240px !important
+} */
+.nav-tab-menu{
+    left: -240px;
+}
+.strip-logo {
+    padding: 25px 0;
+}
+.strip-logo img {
+    height: 48px;
+}
+.strip-toggel-menu i {
+    font-size: 25px;
+}
+.strip-social-icon { 
+    bottom: 20px; 
+    z-index: 11;
+}
+.strip-social-icon >div {
+    padding-top: 10px;
+}

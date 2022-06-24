@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/aeb658a71a.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/index.css">
+    <title>JS Exam</title>
+</head>
+
+<body>
+
+    <!--  -->
+    <div class="strip-header-nav position-fixed top-0 start-0 text-center">
+
+        <div class="strip-logo">
+            <img src="images/logo.png">
+        </div>
+        <div class="strip-toggel-menu position-absolute top-50 start-50 translate-middle">
+            <i class="fa-solid fa-align-justify"></i>
+            <!--
+                when nav opened
+                <i class="fa-regular fa-xmark"></i>
+            
+            -->
+        </div>
+
+        <div class="strip-social-icon position-absolute start-50 translate-middle-x">
+            <div class="strip-lang">
+                <span>
+                    <i class="fa-solid fa-globe"></i>
+                </span>
+            </div>
+            <div class="strip-share">
+                <span>
+                    <i class="fa-solid fa-share-nodes"></i>
+                </span>
+            </div>
+        </div>
+
+    </div>
+    <div class="nav-tab-menu position-fixed top-0  close-menu">
+        <div class="nav-item">
+            <ul>
+                <li class="list-unstyled item1"><a class="text-decoration-none nav-category" href="#">Now playing</a>
+                </li>
+                <li class="list-unstyled item2"><a class="text-decoration-none nav-category" href="#">Popular</a></li>
+                <li class="list-unstyled item3"><a class="text-decoration-none nav-category" href="#">Top Rated</a></li>
+
+                <li class="list-unstyled item4"><a class="text-decoration-none nav-category" href="#">Trending</a></li>
+                <li class="list-unstyled item5"><a class="text-decoration-none nav-category" href="#">Upcoming</a></li>
+                <li class="list-unstyled item6"><a class="text-decoration-none nav-category" href="#contact">Contact
+                        Us</a></li>
+
+
+            </ul>
+        </div>
+        <div class="nav-social-item position-absolute">
+            <a href="#" class="text-decoration-none"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="text-decoration-none"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#" class="text-decoration-none"><i class="fa-solid fa-globe"></i></a>
+            <div class="pt-3">
+                <span>Copyright Â© 2019 All Rights Reserved.</span>
+            </div>
+
+        </div>
+    </div>
+    <!--  -->
+    <section id="movie">
+        <div class="search pt-5">
+            <div class="container w-75">
+                <div class="row justify-content-between">
+                    <div class="col-md-6  text-center">
+                        <input id="allMovies" class="form-control mb-5 " placeholder="get movies by word...">
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <input class="form-control " id="word" placeholder="search...">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <section class="container text-center my-1 py-2 ">
+        <div class="row" id="rowSearch"></div>
+    </section>
+    <section class="container text-center my-1 py-2 mb-2"> 
+        <div class="row" id="rowData"></div> 
+    </section>
+    <section id="contact" class="container  w-75 mx-auto my-5 ">
+        <h2 class="text-light my-5">ContacUs...</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <input class="form-control" id="name" placeholder="Enter Your Name">
+                    <div class="alert d-none alert-danger" id="namealert" role="alert">
+                        Your Name is not valid
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="input-group">
+                    <input class="form-control" id="email" placeholder="Enter Email">
+                    <div class="alert d-none alert-danger" id="emailalert" role="alert">
+                        entre valid email
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="input-group">
+                    <input class="form-control" id="phone" placeholder="Enter phone">
+                    <div class="alert d-none alert-danger" id="phonealert" role="alert">
+                        entre valid phone
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="input-group">
+                    <input class="form-control" id="age" placeholder="Enter Age">
+                    <div class="alert d-none alert-danger" id="agealert" role="alert">
+                        entre valid Age
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="input-group">
+                    <input class="form-control" type="password" id="password" placeholder="Enter Password">
+                    <div class="alert d-none alert-danger" id="passwordalert" role="alert">
+                        entre valid password *Minimum eight characters, at least one letter and one number:*
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="input-group">
+                    <input class="form-control" type="password" id="rePassword" placeholder="Enter RePassword">
+                    <div class="alert d-none alert-danger" id="repasswordalert" role="alert">
+                        entre valid Repassword which match with entered password
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <button type="submit" disabled="" id="submitBtn" class="btn btn-outline-danger">Submit</button>
+
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
