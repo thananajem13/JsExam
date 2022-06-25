@@ -12,10 +12,11 @@ $(document).ready(function()  {
     // let results = {}
    async  function fetchApi(url){
     rowData.html('')
-    let getNowPlaying = `https://api.themoviedb.org/3/movie/now_playing?api_key=eba8b9a7199efdcb0ca1f96879b83c44&fbclid=IwAR1yfhh6fUODdbXZbZJsldlXlsplEiCsEUz5VPAJvlAsTSAsHpSTIG-P94k&language=en-US&page=1`;
+    // let getNowPlaying = `https://api.themoviedb.org/3/movie/now_playing?api_key=eba8b9a7199efdcb0ca1f96879b83c44&fbclid=IwAR1yfhh6fUODdbXZbZJsldlXlsplEiCsEUz5VPAJvlAsTSAsHpSTIG-P94k&language=en-US&page=1`;
      
-    let fetchApi = await fetch(getNowPlaying);
+    let fetchApi = await fetch(url);
      let result = await fetchApi.json();
+     console.log(result)
      window.results = result.results;
     let data ='';
     $.each(result.results,function(k,v){
@@ -56,10 +57,12 @@ rowData.append(data)
     rowSearchData.html('')
     let  data = ''
     //console.log(typeof(window.results))
-   let searchedMoviee =  window.results.filter((elem)=>{
+    console.log(window.results)
+   let searchedMoviee =  window.results.filter((elem)=>{console.log(elem.title.includes($('#word').val()))
     return elem.title.includes($('#word').val())})
-    //console.log(searchedMoviee)
-    $.each(searchedMoviee,function(k,v){
+    console.log(searchedMoviee.length);
+    if(searchedMoviee.length!=0){
+        $.each(searchedMoviee,function(k,v){
         //console.log(v)
        data += `<div class="col-md-6 col-lg-4 my-3 myM  shadow">
     <div class="movie shadow rounded position-relative">
@@ -82,7 +85,9 @@ rowData.append(data)
 </div>`; 
 
 rowSearchData.append(data)
-    });//console.log(data)
+    });
+    }
+    //console.log(data)
     // rowSearchData.html(data) 
    })
 console.log(window.results)
@@ -90,41 +95,42 @@ console.log($('#allMovies').length)
    
    $('#allMovies').keyup(function(){
     console.log('keyup allMovies ')
-    
+    let searUrl  =`https://api.themoviedb.org/3/search/movie?api_key=eba8b9a7199efdcb0ca1f96879b83c44&fbclid=IwAR1yfhh6fUODdbXZbZJsldlXlsplEiCsEUz5VPAJvlAsTSAsHpSTIG-P94k&language=en-US&query=${$(this).val()}&page=1&include_adult=false`;
+    fetchApi(searUrl)
     //console.log($('.row#rowSearch').length)
-    rowData.html('')
-    let  data = ''
-    console.log((window.results))
-   let searchedMoviee =  window.results.filter((elem)=>{return elem.title.includes($(this).val());});
-    console.log(searchedMoviee)
-    // localStorage.setItem('searchDataRes',searchedMoviee)
-    // searchedMoviee = localStorage.getItem('searchDataRes')
-    $.each(searchedMoviee,function(k,v){
-        //console.log(v)
-       data = `<div class="col-md-6 col-lg-4 my-3 myM  shadow">
-    <div class="movie shadow rounded position-relative">
-        <div class="post">
-            <img class="movie-img" src="https://image.tmdb.org/t/p/w500${v.backdrop_path}"
-                class="img-fluid rounded">
-            <div
-                class="layer align-items-center  text-center position-absolute w-100 h-100 start-0 top-100 ">
-                <div class="info p-0">
+//     rowData.html('')
+//     let  data = ''
+//     console.log((window.results))
+//    let searchedMoviee =  window.results.filter((elem)=>{return elem.title.includes($(this).val());});
+//     console.log(searchedMoviee)
+//     // localStorage.setItem('searchDataRes',searchedMoviee)
+//     // searchedMoviee = localStorage.getItem('searchDataRes')
+//     $.each(searchedMoviee,function(k,v){
+//         //console.log(v)
+//        data = `<div class="col-md-6 col-lg-4 my-3 myM  shadow">
+//     <div class="movie shadow rounded position-relative">
+//         <div class="post">
+//             <img class="movie-img" src="https://image.tmdb.org/t/p/w500${v.backdrop_path}"
+//                 class="img-fluid rounded">
+//             <div
+//                 class="layer align-items-center  text-center position-absolute w-100 h-100 start-0 top-100 ">
+//                 <div class="info p-0">
 
-                    <h2>${v.title}</h2>
-                    <p>${v.overview}</p>
-                    <p>rate: ${v.vote_average}</p>
-                    <p>${v.release_date}</p>
+//                     <h2>${v.title}</h2>
+//                     <p>${v.overview}</p>
+//                     <p>rate: ${v.vote_average}</p>
+//                     <p>${v.release_date}</p>
 
-                </div>
-            </div>
-        </div>
-    </div>
-</div>`; 
-console.log(data)
-// rowData.append(data)
-$('div#rowData.row').append(data)
-console.log(rowData)
-    });
+//                 </div>
+//             </div>
+//         </div>
+//     </div>
+// </div>`; 
+// console.log(data)
+// // rowData.append(data)
+// $('div#rowData.row').append(data)
+// console.log(rowData)
+//     });
     });
     //console.log(data)
     // rowSearchData.html(data)
